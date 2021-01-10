@@ -10,12 +10,12 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 public class ReadFileCSV  {
-	private final static String url = "jdbc:postgresql://localhost:5432/spotify";
-    private final static String user = "postgres";
-    private final static String password = "icha";
+	private final static String url = "jdbc:postgresql://[hostname]:[port]/[database]";
+    	private final static String user = "[db_username]";
+    	private final static String password = "[db_password]";
     
     public void ReadCSV() {
-    	String csvFilePath = "D:/Materi Sekolah Big Data/Small Project 1/SP1-master/invoice.csv";
+    	String csvFilePath = "[your path to the directory csv file]";
     	 
         int batchSize = 20;
  
