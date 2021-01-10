@@ -8,9 +8,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class DisplayData extends JFrame implements ActionListener {
-	private final static String url = "jdbc:postgresql://localhost:5432/spotify";
-    private final static String user = "postgres";
-    private final static String password = "icha";
+	private final static String url = "jdbc:postgresql://[hostname]:[port]/[database]";
+    	private final static String user = "[db_username]";
+    	private final static String password = "[db_password]";
     
     JFrame frame1;
     JLabel l0, l1, l2;
@@ -105,34 +105,33 @@ public class DisplayData extends JFrame implements ActionListener {
         String invoiceid = "";
 
         try {
-            //pst = con.prepareStatement("select * from emp where UNAME='" + from + "'");
         	pst = con.prepareStatement("select * from " + from + "");
-            System.out.println(pst);
+            	System.out.println(pst);
         	ResultSet rs = pst.executeQuery();
-            int i = 0;
+            	int i = 0;
             
-            if(from.equals("awal_tahun")) {
-            while (rs.next()) {
-            	invoiceid = "Terima kasih karena Anda telah melakukan pembayaran pada invoice " + rs.getString("invoiceid") 
-                + ". Anda berhak mendapatkan diskon awal tahun sebesar 10%!";
-                model.addRow(new Object[]{ invoiceid});
-                i++;
+            	if(from.equals("awal_tahun")) {
+            		while (rs.next()) {
+            			invoiceid = "Terima kasih karena Anda telah melakukan pembayaran pada invoice " + rs.getString("invoiceid") 
+                		+ ". Anda berhak mendapatkan diskon awal tahun sebesar 10%!";
+                		model.addRow(new Object[]{ invoiceid});
+                		i++;
+            		}
             	}
-            }
-            else if(from.equals("akhir_tahun")) {
-                while (rs.next()) {
-                	invoiceid = "Terima kasih karena Anda telah melakukan pembayaran pada invoice " + rs.getString("invoiceid") 
-                    + ". Anda berhak mendapatkan diskon awal tahun sebesar 20%!";
-                    model.addRow(new Object[]{ invoiceid});
-                    i++;
+            	else if(from.equals("akhir_tahun")) {
+                	while (rs.next()) {
+                		invoiceid = "Terima kasih karena Anda telah melakukan pembayaran pada invoice " + rs.getString("invoiceid") 
+                    		+ ". Anda berhak mendapatkan diskon awal tahun sebesar 20%!";
+                    		model.addRow(new Object[]{ invoiceid});
+                    		i++;
                 	}
                 }
-            else if(from.equals("belum_bayar")) {
-                while (rs.next()) {
-                	invoiceid = "Yuk segera bayar tagihan invoice " + rs.getString("invoiceid") 
-                    + ". dapatkan diskon sebesar 15%!";
-                    model.addRow(new Object[]{ invoiceid});
-                    i++;
+            	else if(from.equals("belum_bayar")) {
+                	while (rs.next()) {
+                		invoiceid = "Yuk segera bayar tagihan invoice " + rs.getString("invoiceid") 
+                    		+ ". dapatkan diskon sebesar 15%!";
+                    		model.addRow(new Object[]{ invoiceid});
+                    		i++;
                 	}
                 }   
             
@@ -141,9 +140,9 @@ public class DisplayData extends JFrame implements ActionListener {
             }
 
             if (i == 1) {
-                System.out.println(i + " Record Found");
-            } else {
                 System.out.println(i + " Records Found");
+            } else {
+                System.out.println(i + " Records Not Found");
             }
 
         } catch (Exception ex) {
