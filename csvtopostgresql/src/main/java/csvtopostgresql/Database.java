@@ -3,9 +3,9 @@ package csvtopostgresql;
 import java.sql.*;
 
 public class Database {
-	private final static String url = "jdbc:postgresql://localhost:5432/spotify";
-    private final static String user = "postgres";
-    private final static String password = "icha";
+	private final static String url = "jdbc:postgresql://[hostname]:[port]/[database]";
+    	private final static String user = "[user]";
+	private final static String password = "[password]";
 
     public Connection connect() {
         Connection conn = null;
