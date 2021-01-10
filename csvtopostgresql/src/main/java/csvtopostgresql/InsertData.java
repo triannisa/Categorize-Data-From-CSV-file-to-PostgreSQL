@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class InsertData {
-	private final static String url = "jdbc:postgresql://localhost:5432/spotify";
-    private final static String user = "postgres";
-    private final static String password = "icha";
+	private final static String url = "jdbc:postgresql://[hostname]:[port]/[database]";
+    private final static String user = "[db_username]";
+    private final static String password = "[db_password]";
 
     public Connection connect() {
         Connection conn = null;
