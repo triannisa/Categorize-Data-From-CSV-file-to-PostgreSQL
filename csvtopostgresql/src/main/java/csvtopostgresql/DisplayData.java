@@ -38,7 +38,7 @@ public class DisplayData extends JFrame implements ActionListener {
         b1.setBounds(150, 150, 150, 20);
         b1.addActionListener(this);
 
-        setTitle("Small Project Sekolah Big Data");
+        setTitle("Data Invoice");
         setLayout(null);
         setVisible(true);
         setSize(500, 500);
